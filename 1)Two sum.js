@@ -37,3 +37,5 @@ var twoSum = function(nums, target) {
     // while(i!=j)
     // while(nums[i]+nums[j])
 };
+
+// only issue is time 
