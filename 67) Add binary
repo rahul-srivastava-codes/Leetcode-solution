@@ -1,0 +1,42 @@
+/**
+ * @param {string} a
+ * @param {string} b
+ * @return {string}
+ */
+var addBinary = function(a, b) {
+    var sum1 = 0;
+    var p = 0;
+    var x = parseInt(a);
+    var sum2 = 0;
+    var q = 0;
+    var y = parseInt(b);
+    while(x>=0 && y>=0){
+        let r = x%10;        
+        sum1 = sum1 + r*(2**p);        
+        x = Math.floor(x/10);        
+        p++;    
+        let r2 = y%10;
+        sum2 = sum2 + r2*(2**q);        
+        y = Math.floor(y/10);
+        q++;    
+    }   
+    
+    var sum3 = sum1+sum2;    
+
+    var d = [];
+    while(sum3>=0){
+        let r = sum3%2;
+        d.push(r.toString());
+        sum3 = Math.floor(sum3/2);
+    }
+    // console.log(d);
+    var s = "";
+    for(let i = d.length-1; i>=0; i--){
+        s = s + d[i];
+    }
+    console.log(s.toString());
+    return s.toString();
+};
+
+
+this one works but time limit exceeded
