@@ -39,4 +39,29 @@ var addBinary = function(a, b) {
 };
 
 
-this one works but time limit exceeded
+// this one works but time limit exceeded
+
+class Solution {
+    public String addBinary(String a, String b) {
+        int alen = a.length();
+        int blen = b.length();
+        int i = 0;
+        int carry = 0;
+        
+        StringBuilder s = new StringBuilder();
+        while(i<alen || i<blen || carry > 0 ){
+            int x = 0;
+            int y = 0;
+            if(i<alen && a.charAt(alen-1-i) == '1'){
+                x = 1;
+            }
+            if(i<blen && b.charAt(blen-1-i) == '1'){
+                y = 1;
+            }
+            s.append((x + y + carry) % 2);
+            carry = (x+y+carry)/2;
+            i++;
+        }
+        return s.reverse().toString();
+    }
+}
